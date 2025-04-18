@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Product } from "@/lib/types";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 interface FilterSectionProps {
   products: Product[];
@@ -50,8 +52,22 @@ export default function FilterSidebar({
   };
 
   useEffect(() => {
-    setFilteredProducts(products); // Placeholder logic
-  }, [filters]);
+    let filtered = [...products];
+
+    Object.entries(filters).forEach(([key, values]) => {
+      if (key === "customizable" && values !== null) {
+        filtered = filtered.filter(
+          (product) => product.customizable === values
+        );
+      } else if (Array.isArray(values) && values.length > 0) {
+        filtered = filtered.filter((product) =>
+          values.includes((product as any)[key])
+        );
+      }
+    });
+
+    setFilteredProducts(filtered);
+  }, [filters, products]);
 
   const FilterBlock = ({
     title,
@@ -70,7 +86,9 @@ export default function FilterSidebar({
         onClick={() => toggleFilterVisibility(keyName)}
       >
         <h4>{title}</h4>
-        <span className="toggle-icon">{openFilters[keyName] ? "▲" : "▼"}</span>
+        <span className="toggle-icon">
+          {openFilters[keyName] ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        </span>
       </div>
 
       {openFilters[keyName] && type === "multi" && options && (
@@ -166,74 +184,6 @@ export default function FilterSidebar({
         keyName="pattern"
         options={["Striped", "Plain", "Printed"]}
       />
-
-      <style jsx>{`
-        .filter-sidebar {
-          width: 260px;
-          padding: 20px;
-          border-radius: 10px;
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-        }
-
-        .filter-title {
-          font-size: 18px;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-
-        .filter-block {
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          border-bottom: 1px solid #eee;
-          padding-bottom: 16px;
-        }
-
-        .filter-block-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          cursor: pointer;
-          padding: 4px 0;
-        }
-
-        .filter-block h4 {
-          font-size: 15px;
-          font-weight: 600;
-          margin: 0;
-          color: #333;
-        }
-
-        .toggle-icon {
-          font-size: 12px;
-          cursor: pointer;
-          color: #666;
-        }
-
-        .filter-options {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          padding-left: 8px;
-          margin-top: 8px;
-        }
-
-        label {
-          font-size: 14px;
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          color: #555;
-          cursor: pointer;
-        }
-
-        input[type="checkbox"] {
-          cursor: pointer;
-          accent-color: #000;
-        }
-      `}</style>
     </div>
   );
 }

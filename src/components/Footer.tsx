@@ -1,4 +1,3 @@
-// components/Footer.tsx
 import React from "react";
 import { BsInstagram, BsLinkedin } from "react-icons/bs";
 
@@ -13,7 +12,6 @@ const Footer = () => {
       }}
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        {/* Top Section */}
         <div
           style={{
             display: "flex",
@@ -22,7 +20,6 @@ const Footer = () => {
             marginBottom: "40px",
           }}
         >
-          {/* Newsletter */}
           <div style={{ flex: "1 1 300px", marginBottom: "20px" }}>
             <h4 style={{ fontWeight: 600 }}>BE THE FIRST TO KNOW</h4>
             <p>Sign up for updates from mettā muse.</p>
@@ -50,7 +47,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact & Currency */}
           <div style={{ flex: "1 1 200px", marginBottom: "20px" }}>
             <h4>CONTACT US</h4>
             <p>+44 221 133 5360</p>
@@ -72,7 +68,6 @@ const Footer = () => {
 
         <hr style={{ border: "1px solid #333" }} />
 
-        {/* Bottom Section */}
         <div
           style={{
             display: "flex",
@@ -81,7 +76,6 @@ const Footer = () => {
             marginTop: "40px",
           }}
         >
-          {/* Links */}
           <div style={{ flex: "1 1 200px", marginBottom: "20px" }}>
             <h4 style={{ fontSize: "20px", marginBottom: "2px" }}>
               mettā muse
@@ -123,7 +117,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Socials & Payment */}
           <div style={{ flex: "1 1 400px", marginBottom: "20px" }}>
             <h4>FOLLOW US</h4>
 

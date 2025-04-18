@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import "./styles/global.css";
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");

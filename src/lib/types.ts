@@ -9,6 +9,5 @@ export interface Product {
     rate: number;
     count: number;
   };
-  customizable?: boolean; // Make optional if not always present
-  // Add other filter-related properties as needed
+  customizable?: boolean;
 }

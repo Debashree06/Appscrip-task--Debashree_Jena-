@@ -42,17 +42,10 @@ export default function TopNav() {
           <span style={{ cursor: "pointer" }}>
             <FiShoppingCart />
           </span>
-          <span style={{ cursor: "pointer" }}>
+          <span className="hide-mobile">
             <FaRegUser />
           </span>
-          <span
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "4px",
-              cursor: "pointer",
-            }}
-          >
+          <span className="hide-mobile">
             ENG <IoIosArrowDown />
           </span>
         </div>
@@ -64,6 +57,27 @@ export default function TopNav() {
         <a href="#">ABOUT</a>
         <a href="#">CONTACT US</a>
       </div>
+
+      <h1
+        style={{
+          textAlign: "center",
+          marginTop: "20px",
+          fontSize: "45px",
+        }}
+      >
+        Discover our products
+      </h1>
+      <p
+        style={{
+          textAlign: "center",
+          fontSize: "18px",
+          maxWidth: "600px",
+          margin: "20px auto",
+        }}
+      >
+        Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
+        scelerisque. Dolor integer scelerisque nibh amet mi ut elementum dolor.
+      </p>
     </>
   );
 }

@@ -1,4 +1,3 @@
-// app/page.tsx
 import { fetchProducts } from "@/lib/api";
 import ClientWrapper from "../components/ClientWrapper";
 

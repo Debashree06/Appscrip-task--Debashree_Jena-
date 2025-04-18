@@ -19,12 +19,12 @@ export default function ClientWrapper({ products }: { products: Product[] }) {
           display: flex;
           flex-direction: row;
           align-items: flex-start;
-          padding: 40px 80px;
-          gap: 30px;
+          padding: 40px 60px;
+          gap: 50px;
         }
 
         .filter-panel {
-          width: 250px;
+          width: 280px;
           flex-shrink: 0;
           background-color: #fff;
           padding: 20px;

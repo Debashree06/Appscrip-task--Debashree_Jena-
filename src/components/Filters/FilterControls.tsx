@@ -1,4 +1,3 @@
-// components/Filters/FilterControls.tsx
 "use client";
 
 import { useState } from "react";
@@ -27,12 +26,12 @@ export default function FilterControls({
     setSortOption(option);
     setShowModal(false);
 
-    // Create a new array to avoid mutating state directly
+    // create a new array to avoid mutating state directly
     const sortedProducts = [...filteredProducts];
 
     switch (option) {
       case "Newest First":
-        sortedProducts.sort((a, b) => b.id - a.id); // Assuming higher ID = newer
+        sortedProducts.sort((a, b) => b.id - a.id);
         break;
       case "Popular":
         sortedProducts.sort((a, b) => b.rating.rate - a.rating.rate);
@@ -43,9 +42,7 @@ export default function FilterControls({
       case "Price: Low to High":
         sortedProducts.sort((a, b) => a.price - b.price);
         break;
-      default: // 'Recommended' (default sorting)
-        // You might want to implement your recommendation algorithm here
-        // For now, we'll sort by rating (popular) as recommended
+      default:
         sortedProducts.sort((a, b) => b.rating.rate - a.rating.rate);
     }
 
